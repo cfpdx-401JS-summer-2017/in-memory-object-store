@@ -1,29 +1,29 @@
 const shortid = require('shortid'); 
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 
-class Dogs {
+class Store {
     constructor() {
         this.name,
-        this.breed
+        this.breed,
+        this.list = []
     }
-    var dog1 = new Dogs
-        dog1.breed = 'a';
-        dog1.name = 'fido';
-    var dog2 = new Dogs
-        dog2.breed = 'b'
-        dog2.name = 'barky'
+    save(objectToSave){
+        objectToSave._id = shortid.generate();
+        this.list.push(objectToSave);
+        
 
-    {
-        save(<objectToSave>)
+        return objectToSave;
+            
     }
-    {
-        get(id)
+    get(id){
+        this.list.find();
+        
+
+        
     }
     
 };
 
 
 
-module.exports = {
-
-};
+module.exports = Store;
