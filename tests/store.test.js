@@ -19,4 +19,9 @@ describe('memory store', () => {
         let fetchedDogs = store.getAll();
         assert.equal(fetchedDogs.length, 5);
     });
+
+    it('removes the dog by id', () => {
+        let killedDog = store.remove('Byl6ZbCMHZ');
+        assert.equal(killedDog, true);
+    });
 });
