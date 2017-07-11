@@ -1,11 +1,11 @@
 const assert = require('assert');
-const Store = require('../lib/class');
-const store = new Store();
+const store = require('../lib/store');
 
-describe('save function', () => {
-    it('does save', () => {
-        const cat = { type: 'cat', name: 'felix' };
-        store.save(cat);
-        assert.equal(store.cat, { type: 'cat', name: 'felix' });
+describe('memory store', () => {
+    describe('save', () => {
+        it('generates an id', () => {
+            let savedObj = store.save({ foo: 'bar' });
+            assert.ok(savedObj._id);
+        });
     });
 });
