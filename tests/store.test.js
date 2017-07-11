@@ -12,6 +12,11 @@ describe('memory store', () => {
 
     it('gets the dog by id', () => {
         let foundDog = store.get('rygGbb0MBW');
-        assert.ok(foundDog._id);
+        assert.equal(foundDog._id, 'rygGbb0MBW');
+    });
+
+    it('gets all the dogs', () => {
+        let fetchedDogs = store.getAll();
+        assert.equal(fetchedDogs.length, 5);
     });
 });
