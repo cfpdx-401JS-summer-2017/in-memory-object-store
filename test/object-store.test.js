@@ -5,6 +5,7 @@ shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 
 const store = {
   items: [],
+  getAll: () => store.items.slice()
 };
 
 
@@ -14,7 +15,7 @@ describe('object-store', () => {
   });
 
   it('contains appropriate methods and a place to store objects', () => {
-    const objectStore = store;
+    const objectStore = store.items;
     assert.deepEqual(objectStore, {items:[]});
   });
 
@@ -24,7 +25,7 @@ describe('object-store', () => {
   });
 
   it('gets all the stored items and returns them in an array that is not the original array', () => {
-    const gotAll = 'nothing';
-    assert.equal(gotAll, []);
+    const gotAll = store.getAll();
+    assert.deepEqual(gotAll, []);
   });
 });
