@@ -1,0 +1,23 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anwarmontasir/in-memory-object-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anwarmontasir/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/anwarmontasir/in-memory-object-store#readme",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2"
+  }
+}
