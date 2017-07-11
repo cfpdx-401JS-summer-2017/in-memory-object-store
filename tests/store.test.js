@@ -1,7 +1,10 @@
 const assert = require('assert');
-
+const store = require('../src/store');
 describe('memory store', () => {
-    it('does something', () => {
-        assert.equal(1+1, 2);
+    describe('save', () => {
+        it('generates an id', () => {
+            let savedObj = store.save({foo: 'hey'});
+            assert.ok(savedObj._id);
+        });
     });
 });
