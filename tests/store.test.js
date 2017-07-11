@@ -17,4 +17,15 @@ describe('memory store', () => {
             assert.deepEqual(savedObj, gotObj);
         });
     });
+
+    describe('getAll', () => {
+        it('returns entire array of objects', () => {
+            const testObj1 = {foo:'bar'};
+            const savedObj1 = store.save(testObj1);
+            const testObj2 = {foo:'bar'};
+            const savedObj2 = store.save(testObj2);
+            let gotArray = store.getAll();
+            assert.deepEqual(store.storesList, gotArray);
+        });
+    });
 });
