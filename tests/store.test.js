@@ -1,7 +1,11 @@
 const assert = require('assert');
+const store = require('../lib/store');
 
 describe('memory store', () => {
-    it('this works good', () => {
-        assert.equal(1+1, 42);
+    describe('save', () => {
+        it('generates an id', () => {
+            let savedObj = store.save({foo:'bar'});
+            assert.ok(savedObj._id);
+        });
     });
 });
