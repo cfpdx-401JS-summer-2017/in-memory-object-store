@@ -3,7 +3,9 @@ const shortid = require('shortid');
 
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 
-const Store = {};
+const store = {
+  items: [],
+};
 
 
 describe('object-store', () => {
@@ -12,8 +14,13 @@ describe('object-store', () => {
   });
 
   it('contains appropriate methods and a place to store objects', () => {
-    const objectStore = Store;
-    assert.equal(objectStore, {});
+    const objectStore = store;
+    assert.deepEqual(objectStore, {items:[]});
+  });
+
+  it('holds an array to store objects', () => {
+    const objectStored = store.items;
+    assert.deepEqual(objectStored, []);
   });
 
 });
