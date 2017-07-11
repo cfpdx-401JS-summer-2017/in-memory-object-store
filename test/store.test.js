@@ -16,8 +16,14 @@ describe('memory store', () => {
     describe('get', () => {
         it('gets by id', () => {
             let objectWithId = store.get(chimp._id);
-            console.log(objectWithId);
             assert.equal(objectWithId, chimp);
         });
     });
+    describe('getAll', () => {
+        it('gets entire array', () => {
+            let entireArray = store.getAll();
+            //console.log('entireArray = ' + entireArray);
+            assert.deepEqual(entireArray, [cat, dog, chimp]);
+        })
+    })
 });
