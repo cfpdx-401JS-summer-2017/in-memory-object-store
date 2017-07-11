@@ -13,8 +13,14 @@ function get(_id) {
     return foundObj;
 }
 
+function getAll() {
+    return storesList;
+}
+
 
 module.exports = {
-    save, 
-    get
+    storesList,
+    save,
+    get,
+    getAll
 };

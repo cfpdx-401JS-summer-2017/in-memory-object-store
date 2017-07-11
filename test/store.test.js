@@ -21,4 +21,15 @@ describe('memory store', () => {
     });
 });
 
+describe('memory store', () => {
+    describe('getAll', () => {
+        it('returns an array of the objects', () => {
+            const testfirstObj = {foo: 'bar'};
+            const savedfirstObj = store.save(testfirstObj);
+            let newArray = store.getAll();
+            assert.deepEqual(store.storesList, newArray);
+        });
+    });
+});
+
 
