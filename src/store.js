@@ -12,15 +12,12 @@ function get(id) {
         if (list[i]._id === id) {
             return list[i];
         }
-        else {
-            return null;
-        }
     }
+    return null;
 }
 
-function getAll(obj) {
-    list.push(obj);
-    return list;
+function getAll() {
+    return list.slice();
 }
 
 
