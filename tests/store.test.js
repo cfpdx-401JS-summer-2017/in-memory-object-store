@@ -8,4 +8,13 @@ describe('memory store', () => {
             assert.ok(savedObj._id);
         });
     });
+
+    describe('get', () => {
+        it('returns an object by id', () => {
+            const testObj = {foo:'bar'};
+            const savedObj = store.save(testObj);
+            let gotObj = store.get(savedObj._id);
+            assert.deepEqual(savedObj, gotObj);
+        });
+    });
 });
