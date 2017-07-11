@@ -1,7 +1,7 @@
 {
   "name": "in-memory-object-store",
   "version": "1.0.0",
-  "description": "",
+  "description": "in-memory object store",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/markpetrie/in-memory-object-store/issues"
   },
-  "homepage": "https://github.com/markpetrie/in-memory-object-store#readme"
+  "homepage": "https://github.com/markpetrie/in-memory-object-store#readme",
+  "dependencies": {
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2"
+  }
 }
