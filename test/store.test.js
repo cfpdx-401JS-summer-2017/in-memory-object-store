@@ -21,9 +21,13 @@ describe('memory store', () => {
     });
     describe('getAll', () => {
         it('gets entire array', () => {
-            let entireArray = store.getAll();
-            //console.log('entireArray = ' + entireArray);
-            assert.deepEqual(entireArray, [cat, dog, chimp]);
-        })
-    })
+            assert.deepEqual(store.getAll(), [cat, dog, chimp]);
+        });
+    });
+    describe('remove', () => {
+        it('removes by id', () => {
+            store.remove(dog._id);
+            assert.deepEqual(store.getAll(), [cat, chimp]);
+        });
+    });
 });
