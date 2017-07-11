@@ -17,7 +17,7 @@ describe('memory store', () => {
     describe('get', () => {
         it('gets object with an id', () => {
             let objectWithId = store.get(dog._id);
-            assert.ok(objectWithId);
+            assert.equal(objectWithId, dog);
         });
 
         it('gets object with no id', () => {

@@ -1,29 +1,32 @@
 const shortid = require('shortid');
-const arrayOfObjects = [];
+const list = [];
 
 function save(obj) {
     obj._id = shortid.generate();
+    list.push(obj);
     return obj;
 }
 
 function get(id) {
-    if (id) {
-        return id;
-    }
-    else {
-        return null;
+    for (let i = 0; i < list.length; i++) {
+        if (list[i]._id === id) {
+            return list[i];
+        }
+        else {
+            return null;
+        }
     }
 }
 
 function getAll(obj) {
-    arrayOfObjects.push(obj);
-    return arrayOfObjects;
+    list.push(obj);
+    return list;
 }
 
 
 module.exports = {
     save: save,
-    get:get,
+    get: get,
     getAll: getAll
 
 };
