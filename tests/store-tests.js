@@ -42,7 +42,22 @@ describe('memory store', () => {
     });
 
     describe('get all', () => {
-        it('returns an array of objects', () => {
+        it('returns array of all objects', () => {
+            let cheddar = store.save({ name: 'cheddar', origin: 'england' });
+            let havarti = store.save({ name: 'havarti', origin: 'denmark' });
+            let brie = store.save({ name: 'brie', origin: 'france' });
+
+            let returnedArray = [
+                {name: 'cheddar', origin: 'england', _id: cheddar._id },
+                { name: 'havarti', origin: 'denmark', _id: havarti._id },
+                { name: 'brie', origin: 'france', _id: brie._id }
+            ];
+            
+            let allObj = store.getAll();
+            assert.ok(allObj, returnedArray);
+        });
+
+        it('returns an empty array if no objects', () => {
             let allObj = store.getAll();
             assert.ok(allObj, []);
         });
