@@ -14,11 +14,6 @@ describe('object-store', () => {
     assert.equal(1+42, 43);
   });
 
-  it('contains appropriate methods and a place to store objects', () => {
-    const objectStore = store.items;
-    assert.deepEqual(objectStore, {items:[]});
-  });
-
   it('holds an array to store objects', () => {
     const objectStored = store.items;
     assert.deepEqual(objectStored, []);
