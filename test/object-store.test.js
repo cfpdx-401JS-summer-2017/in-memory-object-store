@@ -1,7 +1,7 @@
 const assert = require('assert');
-const shortid = require('shortid');
+// const shortid = require('shortid');
 
-shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+// shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 const Store = {};
 

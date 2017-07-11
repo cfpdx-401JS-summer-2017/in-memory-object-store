@@ -2,9 +2,9 @@
   "name": "in-memory-object-store",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "object-store.test.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test",
     "start": "npm test -- -w"
   },
   "repository": {
