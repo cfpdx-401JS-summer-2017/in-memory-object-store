@@ -41,5 +41,12 @@ describe('memory store', () => {
         });
     });
 
+    describe('get all', () => {
+        it('returns an array of objects', () => {
+            let allObj = store.getAll();
+            assert.ok(allObj, []);
+        });
+    });
+
 
 });
