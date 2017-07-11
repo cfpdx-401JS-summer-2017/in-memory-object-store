@@ -12,7 +12,7 @@
     "url": "git+https://github.com/sevfitz/in-memory-object-store.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sevfitz/in-memory-object-store/issues"
   },
@@ -20,5 +20,8 @@
   "devDependencies": {
     "eslint": "^4.2.0",
     "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8"
   }
 }
