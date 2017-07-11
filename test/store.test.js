@@ -2,19 +2,22 @@ const assert = require('assert');
 const store = require('../lib/store');
 
 describe('memory store', () => {
-    const cat = { type: 'cat', name: 'felix' };
-    const dog = { type: 'dog', name: 'fido' };
+    const cat = { type: 'cat', name: 'Felix' };
+    const dog = { type: 'dog', name: 'Fido' };
+    const chimp = { type: 'chimp', name: 'Bubbles' };
     describe('save', () => {
         it('generates an id', () => {
-            let catObj = store.save(cat);
-            let dogObj = store.save(dog);
-            assert.ok(catObj._id);
+            store.save(cat);
+            store.save(dog);
+            store.save(chimp);
+            assert.ok(cat._id);
         });
     });
     describe('get', () => {
         it('gets by id', () => {
-            let objectWithId = store.get(cat._id);
-            assert.ok(objectWithId);
+            let objectWithId = store.get(chimp._id);
+            console.log(objectWithId);
+            assert.equal(objectWithId, chimp);
         });
-    })
+    });
 });
