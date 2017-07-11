@@ -1,0 +1,24 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests",
+    "start": "npm run test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMPotter/in-memory-object-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMPotter/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/AMPotter/in-memory-object-store#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.4.2"
+  }
+}
