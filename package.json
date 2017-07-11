@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AMPotter/in-memory-object-store#readme",
   "devDependencies": {
     "assert": "^1.4.1",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "short-id": "0.1.0-1"
   }
 }
