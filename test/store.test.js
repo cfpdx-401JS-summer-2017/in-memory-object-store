@@ -10,3 +10,15 @@ describe('memory store', () => {
     });
 });
 
+describe('memory store', () => {
+    describe('get', () => {
+        it('gives the id for an obj', () => {
+            const testObj = {foo: 'bar'};
+            const savedObj = store.save(testObj);
+            const foundObj = store.get(savedObj._id);
+            assert.deepEqual(savedObj, foundObj);
+        });
+    });
+});
+
+
