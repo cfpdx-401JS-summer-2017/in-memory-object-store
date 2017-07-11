@@ -23,4 +23,8 @@ describe('object-store', () => {
     assert.deepEqual(objectStored, []);
   });
 
+  it('gets all the stored items and returns them in an array that is not the original array', () => {
+    const gotAll = 'nothing';
+    assert.equal(gotAll, []);
+  });
 });
