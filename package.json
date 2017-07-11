@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sevfitz/in-memory-object-store#readme",
   "devDependencies": {
+    "class": "^0.1.4",
     "eslint": "^4.2.0",
     "mocha": "^3.4.2"
   },
