@@ -2,9 +2,10 @@
   "name": "in-memory-object-store",
   "version": "1.0.0",
   "description": "created by Meryl Turner 7.11.17",
-  "main": "index.js",
+  "main": "store.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests",
+    "start": "npm test -- -w"
   },
   "repository": {
     "type": "git",
