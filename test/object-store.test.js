@@ -1,10 +1,19 @@
 const assert = require('assert');
-var shortid = require('shortid');
+const shortid = require('shortid');
+
+shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
+const Store = {};
+
 
 describe('object-store', () => {
-  it('contains appropriate methods and a place to store objects', () => {
-    const objectStore = 
-    assert.equal(objectStore, {});
+  it('works', ()=> {
+    assert.equal(1+1, 43);
   });
+
+  // it('contains appropriate methods and a place to store objects', () => {
+  //   const objectStore = Store;
+  //   assert.equal(objectStore, {});
+  // });
 
 });
