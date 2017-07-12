@@ -51,7 +51,7 @@ describe('memory store', () => {
         });
         it('id doesnt exist', () => {
             let removeResult = store.remove('does not exist');
-            assert.deepEqual(removeResult, {removed: false});
+            assert.deepEqual(removeResult, { removed: false });
         });
     });
 });
