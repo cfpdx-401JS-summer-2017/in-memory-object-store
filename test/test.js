@@ -56,14 +56,11 @@ describe('getAll()', () => {
 
     });
 
-    // it('return empty array [] when no objects', () => {
-    //     let store = new Store();
-    //     let emptyListBite = store.getAll();
-    //     console.log('emptyListBite = ',emptyListBite);
+    it('return empty array [] when no objects', () => {
+        let store = new Store();
+        assert.deepEqual(store.getAll(),[]);
 
-    //     assert.deepEqual(listBite,listBite);
-
-    // });
+    });
 
 });
 describe('remove', () => {
