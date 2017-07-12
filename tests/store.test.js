@@ -8,7 +8,9 @@ describe('memory store', () => {
     describe('save', () => {
         it('generates an id', () => {
             let dogObj = store.save(dog);
+            let catObj = store.save(cat);
             assert.ok(dogObj._id);
+            assert.ok(catObj._id);
         });
     });
 
@@ -24,16 +26,23 @@ describe('memory store', () => {
         });
     });
 
-    describe('getAll', () => {
+    describe('get all', () => {
         it('return array of all objects', () => {
             let arrayofObj = store.getAll();
-            assert.deepEqual(arrayofObj, [dog]);
+            assert.deepEqual(arrayofObj, [dog,cat]);
         });
 
-        // it('returns empty array',() => {
-        //     let emptyArray = store.getAll();
-        //     assert.deepEqual(emptyArray, []);
-        // });
+        it('returns empty array',() => {
+            let emptyArray = store.getAll();
+            assert.deepEqual(emptyArray, []);
+        });
 
+    });
+
+    describe('remove id',() => {
+        it('remove object with id', () => {
+            let removeObject = store.remove(dog._id);
+            assert.deepEqual(removeObject,{removed: true});
+        });
     });
 });

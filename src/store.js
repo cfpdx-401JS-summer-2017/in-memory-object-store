@@ -20,10 +20,22 @@ function getAll() {
     return list.slice();
 }
 
+function remove(id) {
+    for (let i = 0; i < list.length; i++){
+        if(list[i]._id === id) {
+            list.splice(i,1);
+            return {removed : true};
+        }
+    }
+    return {removed: false};
+
+}
+
 
 module.exports = {
     save: save,
     get: get,
-    getAll: getAll
+    getAll: getAll,
+    remove: remove
 
 };
