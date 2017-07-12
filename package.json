@@ -1,0 +1,29 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "main": "lib/store.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "eslint": "^4.2.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshabani/in-memory-object-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jshabani/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/jshabani/in-memory-object-store#readme",
+  "description": ""
+}
