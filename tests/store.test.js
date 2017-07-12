@@ -28,4 +28,10 @@ describe('memory store', () => {
             assert.deepEqual(store.storesList, gotArray);
         });
     });
+
+    describe('remove', () => {
+        it('removes object from array by id', () => {
+            
+        })
+    })
 });
