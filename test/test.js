@@ -44,6 +44,21 @@ describe('get', ()=> {
 
     });
 });
+describe('getAll()', () => {
+    it('returns array of all objects', () => {
+        let store = new Store();
+        array = [{name : 'Tiffany'}, {name : 'Fido'}, {name : 'Blaze'}];
+        let savedArray = store.save(array);
+        console.log('savedArray =',savedArray);
+
+        let listBite = store.getAll();
+
+        assert.equal(listBite,savedArray)
+
+    });
+
+}
+)
 
 // should the two it contenst be fliped to match the dicriptions?
 // or is the second it even nessary?
