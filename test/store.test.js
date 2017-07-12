@@ -26,8 +26,10 @@ describe('memory store', () => {
     });
     describe('remove', () => {
         it('removes by id', () => {
-            store.remove(dog._id);
-            assert.deepEqual(store.getAll(), [cat, chimp]);
+            assert.equal(store.remove(dog._id).removed, true);
+        });
+        it('does not remove nonexistent id', () => {
+            assert.equal(store.remove(dog._id).removed, false);
         });
     });
 });
