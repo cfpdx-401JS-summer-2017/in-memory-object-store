@@ -5,7 +5,12 @@ shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 
 const store = {
   items: [],
-  getAll: () => store.items.slice()
+  getAll: () => store.items.slice(),
+  save: (obj) => {
+    obj._id = shortid.generate();
+    store.items.push(obj);
+    return obj;
+  }
 };
 
 
@@ -26,8 +31,8 @@ describe('object-store', () => {
 
   it('gives an object a unique id and saves it in an array', () => {
     const wrench = { 'tool': true, 'use': 'nuts and bolts' };
-    const saveObj = {};
-    assert.equal(saveObj, saveObj.id===true);
-    assert.equal(saveObj, store.items[store.items.length-1]);
+    const saveObj = store.save(wrench);
+    assert.ok(saveObj._id);
+    assert.deepEqual(saveObj, store.items[store.items.length-1]);
   });
 });
