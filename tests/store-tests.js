@@ -48,11 +48,11 @@ describe('memory store', () => {
             let brie = store.save({ name: 'brie', origin: 'france' });
 
             let returnedArray = [
-                {name: 'cheddar', origin: 'england', _id: cheddar._id },
+                { name: 'cheddar', origin: 'england', _id: cheddar._id },
                 { name: 'havarti', origin: 'denmark', _id: havarti._id },
                 { name: 'brie', origin: 'france', _id: brie._id }
             ];
-            
+
             let allObj = store.getAll();
             assert.ok(allObj, returnedArray);
         });
@@ -60,6 +60,29 @@ describe('memory store', () => {
         it('returns an empty array if no objects', () => {
             let allObj = store.getAll();
             assert.ok(allObj, []);
+        });
+    });
+
+    describe('remove', () => {
+        it('removes the object from the store by its id', () => {
+            let cheddar = store.save({ name: 'cheddar', origin: 'england' });
+            let havarti = store.save({ name: 'havarti', origin: 'denmark' });
+            let brie = store.save({ name: 'brie', origin: 'france' });
+
+            // let startingArray = [
+            //     { name: 'cheddar', origin: 'england', _id: cheddar._id },
+            //     { name: 'havarti', origin: 'denmark', _id: havarti._id },
+            //     { name: 'brie', origin: 'france', _id: brie._id }
+            // ]; 
+
+            let endingArray = [
+                { name: 'havarti', origin: 'denmark', _id: havarti._id },
+                { name: 'brie', origin: 'france', _id: brie._id }
+            ]; 
+
+            let afterRemoved = store.remove(cheddar._id);
+            assert.deepEqual(afterRemoved, endingArray);
+
         });
     });
 
