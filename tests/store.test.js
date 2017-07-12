@@ -10,18 +10,37 @@ describe('memory store', () => {
         assert.ok(newDog._id);
     });
 
-    it('gets the dog by id', () => {
-        let foundDog = store.get('rygGbb0MBW');
-        assert.equal(foundDog._id, 'rygGbb0MBW');
+    it('finds a dog by id and returns that dog object', () => {
+        let charlie = store.save({
+            name: 'scooby doo',
+            breed: 'great dane'
+        });
+        let foundDog = store.get(charlie._id);
+        assert.deepEqual(foundDog, charlie);
     });
 
-    it('gets all the dogs', () => {
+    it('returns and array all the dogs', () => {
+        store.save({
+            name: 'pluto',
+            breed: 'hound'
+        });
+        store.save({
+            name: 'snoopy',
+            breed: 'beagle'
+        });
         let fetchedDogs = store.getAll();
-        assert.equal(fetchedDogs.length, 5);
+        assert.equal(fetchedDogs.length, 4); // count of dogs includes the 2 dogs added in test above, 
     });
 
-    it('removes the dog by id', () => {
-        let killedDog = store.remove('Byl6ZbCMHZ');
-        assert.equal(killedDog, true);
+    it('removes the dog by id and returns a different object', () => {
+        let dino = store.save({
+            name: 'dino',
+            breed: 'snorkasaurus'
+        });
+        let killedDog = store.remove(dino._id);
+        // assert.equal(killedDog, true);
+        assert.deepEqual(killedDog, { removed: true });
+        // assert.equal([], store.getAll());
+        // TODO: test if  existing
     });
 });
