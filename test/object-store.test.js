@@ -10,6 +10,9 @@ const store = {
     obj._id = shortid.generate();
     store.items.push(obj);
     return obj;
+  },
+  get: (id) => {
+    
   }
 };
 
@@ -34,5 +37,12 @@ describe('object-store', () => {
     const saveObj = store.save(wrench);
     assert.ok(saveObj._id);
     assert.deepEqual(saveObj, store.items[store.items.length-1]);
+  });
+
+  it('gets an object from the save array by its specific id', () => {
+    const rake = {'tool': true, 'use': 'leaves'};
+    const getId = store.save(rake)._id;
+    const gotObj = store.get(getId);
+    assert.deepEqual(gotObj, store.items[1]);
   });
 });
