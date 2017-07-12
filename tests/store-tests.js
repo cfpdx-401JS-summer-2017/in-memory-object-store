@@ -53,7 +53,7 @@ describe('memory store', () => {
         });
 
         describe('remove', () => {
-            it('removes the object from the store by its id', () => {
+            it('removes the object from the store by its id and returns true if it existed', () => {
                 let cheddar = store.save({ name: 'cheddar', origin: 'england' });
                 let havarti = store.save({ name: 'havarti', origin: 'denmark' });
                 let brie = store.save({ name: 'brie', origin: 'france' });
@@ -61,6 +61,17 @@ describe('memory store', () => {
                 let afterRemoved = store.remove(cheddar._id);
 
                 assert.deepEqual(afterRemoved, { removed: true });
+            });
+
+            it('returns false if it did not exist', () => {
+                let cheddar = store.save({ name: 'cheddar', origin: 'england' });
+                let havarti = store.save({ name: 'havarti', origin: 'denmark' });
+                let brie = store.save({ name: 'brie', origin: 'france' });
+
+                store.remove(brie._id);
+                let afterRemoved = store.remove(brie._id);
+
+                assert.deepEqual(afterRemoved, { removed: false });
             });
         });
     });
