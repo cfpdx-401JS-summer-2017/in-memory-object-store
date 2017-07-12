@@ -1,33 +1,27 @@
 const shortid = require('shortid');
-const list = [];
+const dictionary = {};
 
 function save(obj) {
     obj._id = shortid.generate();
-    list.push(obj);
+    dictionary[obj._id] = obj;
     return obj;
 }
 
 function get(id) {
-    for (let i = 0; i < list.length; i++) {
-        if (list[i]._id === id) {
-            return list[i];
-        }
-    }
-    return null;
+    return dictionary[id];
 }
 
 function getAll() {
-    return list.slice();
+    return Object.values(dictionary);
 }
 
 function remove(id) {
-    for (let i = 0; i < list.length; i++) {
-        if (list[i]._id === id) {
-            list.splice(i, 1);
-            return { removed: true };
-        }
+    if (dictionary[id]) {
+        delete dictionary[id];
+        return { removed: true };
+    } else {
+        return { removed: false };
     }
-    return { removed: false };
 }
 
 
