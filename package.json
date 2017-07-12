@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/object-library.js",
   "scripts": {
+
     "test": "mocha tests",
     "start": "npm test -- -w"
   },
