@@ -8,8 +8,7 @@ describe('object library', () => {
       return new Promise(function (resolve) {
         // added a Promise because function was timing out
         // it turned out to be because i hadn't required assert
-        // console.log('inside the promise');
-        resolve(assert.ok(monday._id));
+          resolve(assert.ok(monday._id));
       })
     });
   });
