@@ -29,20 +29,28 @@ describe('memory store', () => {
     describe('get all', () => {
         it('return array of all objects', () => {
             let arrayofObj = store.getAll();
-            assert.deepEqual(arrayofObj, [dog,cat]);
+            assert.deepEqual(arrayofObj, [dog, cat]);
         });
 
-        it('returns empty array',() => {
+        it('returns empty array', () => {
+            store.remove(dog._id);
+            store.remove(cat._id);
             let emptyArray = store.getAll();
             assert.deepEqual(emptyArray, []);
         });
 
     });
 
-    describe('remove id',() => {
+    describe('remove id', () => {
         it('remove object with id', () => {
+            store.save(dog);
+            store.save(cat);
             let removeObject = store.remove(dog._id);
-            assert.deepEqual(removeObject,{removed: true});
+            assert.deepEqual(removeObject, { removed: true });
+        });
+        it('id doesnt exist', () => {
+            let removeResult = store.remove('does not exist');
+            assert.deepEqual(removeResult, {removed: false});
         });
     });
 });

@@ -21,14 +21,13 @@ function getAll() {
 }
 
 function remove(id) {
-    for (let i = 0; i < list.length; i++){
-        if(list[i]._id === id) {
-            list.splice(i,1);
-            return {removed : true};
+    for (let i = 0; i < list.length; i++) {
+        if (list[i]._id === id) {
+            list.splice(i, 1);
+            return { removed: true };
         }
     }
-    return {removed: false};
-
+    return { removed: false };
 }
 
 
@@ -37,5 +36,4 @@ module.exports = {
     get: get,
     getAll: getAll,
     remove: remove
-
 };
