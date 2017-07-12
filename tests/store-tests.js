@@ -1,21 +1,11 @@
 const assert = require('assert');
 const store = require('../lib/store');
 
-// const Cheese = require('class');
-
-
-// const cheese = new Cheese();
-
-// const cheddar = { name: 'cheddar', origin: 'england' };
-// const havarti = { name: 'havarti', origin: 'denmark' };
-// const brie = { name: 'brie', origin: 'france' };
-
-// cheese.save(cheddar);
-// cheese.save(havarti);
-// cheese.save(brie);
-
-
 describe('memory store', () => {
+    beforeEach(() => {
+        store.removeAll();
+    });
+
     describe('save', () => {
         it('generates an id', () => {
             let savedObj = store.save({ name: 'cheddar', origin: 'england' });
@@ -61,30 +51,17 @@ describe('memory store', () => {
             let allObj = store.getAll();
             assert.ok(allObj, []);
         });
-    });
 
-    describe('remove', () => {
-        it('removes the object from the store by its id', () => {
-            let cheddar = store.save({ name: 'cheddar', origin: 'england' });
-            let havarti = store.save({ name: 'havarti', origin: 'denmark' });
-            let brie = store.save({ name: 'brie', origin: 'france' });
+        describe('remove', () => {
+            it('removes the object from the store by its id', () => {
+                let cheddar = store.save({ name: 'cheddar', origin: 'england' });
+                let havarti = store.save({ name: 'havarti', origin: 'denmark' });
+                let brie = store.save({ name: 'brie', origin: 'france' });
 
-            // let startingArray = [
-            //     { name: 'cheddar', origin: 'england', _id: cheddar._id },
-            //     { name: 'havarti', origin: 'denmark', _id: havarti._id },
-            //     { name: 'brie', origin: 'france', _id: brie._id }
-            // ]; 
+                let afterRemoved = store.remove(cheddar._id);
 
-            let endingArray = [
-                { name: 'havarti', origin: 'denmark', _id: havarti._id },
-                { name: 'brie', origin: 'france', _id: brie._id }
-            ]; 
-
-            let afterRemoved = store.remove(cheddar._id);
-            assert.deepEqual(afterRemoved, endingArray);
-
+                assert.deepEqual(afterRemoved, { removed: true });
+            });
         });
     });
-
-
 });
