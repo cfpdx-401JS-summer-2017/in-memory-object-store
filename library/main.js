@@ -24,6 +24,7 @@ class Store {
     };
     //remove only gets rid of first element.
     remove(id) {
+        //use indexof to find the right index for splice
         return this.list.splice(id,1,id);
 
 

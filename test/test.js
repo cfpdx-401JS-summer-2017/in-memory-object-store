@@ -92,7 +92,3 @@ describe('remove', () => {
 
 
 });
-
-
-// should the two it contenst be fliped to match the dicriptions?
-// or is the second it even nessary?
