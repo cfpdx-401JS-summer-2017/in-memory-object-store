@@ -38,9 +38,8 @@ describe('memory store', () => {
             breed: 'snorkasaurus'
         });
         let killedDog = store.remove(dino._id);
-        // assert.equal(killedDog, true);
         assert.deepEqual(killedDog, { removed: true });
+        // assert.deepEqual(killedDog, { removed: false });
         // assert.equal([], store.getAll());
-        // TODO: test if  existing
     });
 });
