@@ -17,10 +17,20 @@ function getAll() {
     return storesList;
 }
 
+function remove(_id) {
+    const removingObj = storesList.find(x => x._id === _id);
+    if(!removingObj) {
+        return {removed: false};
+    } else {
+        let index = storesList.indexOf(removingObj);
+        storesList.splice(index, 1);
+    }
+}
 
 module.exports = {
     storesList,
     save,
     get,
-    getAll
+    getAll,
+    remove
 };
