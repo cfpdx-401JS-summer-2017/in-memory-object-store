@@ -12,7 +12,6 @@ describe('save', () => {
     it('creates an `_id` property on the object', () => {
         let store = new Store();
         let savedObj = store.save({name : 'Tiffany'});
-        console.log(store.list);
         
         assert.property(savedObj, '_id');
         
@@ -47,18 +46,56 @@ describe('get', ()=> {
 describe('getAll()', () => {
     it('returns array of all objects', () => {
         let store = new Store();
-        array = [{name : 'Tiffany'}, {name : 'Fido'}, {name : 'Blaze'}];
-        let savedArray = store.save(array);
-        console.log('savedArray =',savedArray);
+        let dog1 = store.save({name : 'Tiffany'});
+        let dog2 = store.save({name : 'Fido'});
+        let dog3 = store.save({name : 'Blaze'});
+        realList = store.list
 
         let listBite = store.getAll();
-
-        assert.equal(listBite,savedArray)
+        assert.deepEqual(listBite,realList);
 
     });
 
-}
-)
+    // it('return empty array [] when no objects', () => {
+    //     let store = new Store();
+    //     let emptyListBite = store.getAll();
+    //     console.log('emptyListBite = ',emptyListBite);
+
+    //     assert.deepEqual(listBite,listBite);
+
+    // });
+
+});
+describe('remove', () => {
+    it('removes the object from the store that has that id',()=> {
+        let store = new Store();
+        let dog1 = store.save({name : 'Tiffany'});
+        let dog2 = store.save({name : 'Fido'});
+        let dog3 = store.save({name : 'Blaze'});
+        
+        let listCut = store.remove(dog2._id);
+        let listBite = store.getAll();
+        realList = store.list
+        console.log('listCut = ',listCut);
+        console.log('realList = ', realList);
+
+        assert.equal(listCut, listBite);
+
+    });
+    it('return { removed: true } if the object was removed, else return { removed: false } if the object did not exist', () => {
+        let store = new Store();
+        let dog1 = store.save({name : 'Tiffany'});
+        let dog2 = store.save({name : 'Fido'});
+        let dog3 = store.save({name : 'Blaze'});
+        let listCut = store.remove(dog2._id);
+
+        //assert.
+
+    });
+
+
+});
+
 
 // should the two it contenst be fliped to match the dicriptions?
 // or is the second it even nessary?
