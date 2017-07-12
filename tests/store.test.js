@@ -31,7 +31,12 @@ describe('memory store', () => {
 
     describe('remove', () => {
         it('removes object from array by id', () => {
-            
-        })
-    })
+            const testObj1 = {foo:'bar'};
+            const savedObj1 = store.save(testObj1);
+            const testObj2 = {foo:'bar'};
+            const savedObj2 = store.save(testObj2);
+            const removedObj = store.remove(testObj1._id);
+            assert.ok({removed:true});
+        });
+    });
 });
