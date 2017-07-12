@@ -23,4 +23,11 @@ describe('object-store', () => {
     const gotAll = store.getAll();
     assert.deepEqual(gotAll, []);
   });
+
+  it('gives an object a unique id and saves it in an array', () => {
+    const wrench = { 'tool': true, 'use': 'nuts and bolts' };
+    const saveObj = {};
+    assert.equal(saveObj, saveObj.id===true);
+    assert.equal(saveObj, store.items[store.items.length-1]);
+  });
 });
