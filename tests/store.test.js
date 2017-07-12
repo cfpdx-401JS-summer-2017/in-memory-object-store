@@ -29,13 +29,34 @@ describe('in memory store', () => {
     describe('get', () => {
 
         var objectId = savedObj3._id;
-        var result = store.get(objectId);
+        var getResult = store.get(objectId);
 
         it('retrieves the correct object based on provided id', () => {
-            assert.equal(result, savedObj3);
+            assert.equal(getResult, savedObj3);
+        });
+    });
+
+    describe('getAll', () => {
+
+        var savedObjects = [
+            { _id: savedObj1._id, name: savedObj1.name, type: savedObj1.type },
+            { _id: savedObj2._id, name: savedObj2.name, type: savedObj2.type },
+            { _id: savedObj3._id, name: savedObj3.name, type: savedObj3.type }];
+
+        var getAllResult = store.getAll();
+
+        it('retrieves all objects', () => {
+            assert.deepEqual(savedObjects, getAllResult);
+        });
+
+        it('returns an empty array when no objects exist', () => {
+
+            var getAllResultEmpty = store.getAll();
+            getAllResultEmpty.length = 0;
+
+            assert.equal(Array.isArray(getAllResultEmpty), true);
+            assert.equal(getAllResult.length, 0);
 
         });
     });
 });
-
-
