@@ -33,7 +33,7 @@ describe('get', ()=> {
         console.log('savedObj =', savedObj);
         console.log('gettingIdObj =', gettingIdObj);
         console.log('store.list =', store.list);
-        assert.equal(dog._id,gettingIdObj);
+        assert.equal(savedObj,gettingIdObj);
 
     });
 });

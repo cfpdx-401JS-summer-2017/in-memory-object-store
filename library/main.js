@@ -16,13 +16,7 @@ class Store {
             
     }
     get(id){
-        this.list.find( object =>{ 
-            if(object._id == id) {
-                console.log(object, id)
-                return object;
-
-            } 
-        });
+        return this.list.find( (object) => object._id == id);  
         
     }
     
