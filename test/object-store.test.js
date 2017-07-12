@@ -51,7 +51,7 @@ describe('object-store', () => {
     const rake = {'tool': true, 'use': 'leaves'};
     const getId = store.save(rake)._id;
     const gotObj = store.get(getId);
-    assert.deepEqual(gotObj, store.items[0]);
+    assert.deepEqual(gotObj, store.items[1]);
   });
 
   it('returns null if the id given does not match any object that is saved', () => {
