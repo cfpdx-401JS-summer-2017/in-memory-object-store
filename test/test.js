@@ -1,6 +1,8 @@
 const Store = require('../library/main');
 const chai = require('chai');
+const shortid = require('shortid');
 var assert = chai.assert;
+shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
 
 // describe('memory store', () => {
     
@@ -9,7 +11,7 @@ var assert = chai.assert;
 describe('save', () => {
     it('creates an `_id` property on the object', () => {
         let store = new Store();
-        let savedObj = store.save({name : 'fido'});
+        let savedObj = store.save({name : 'Tiffany'});
         console.log(store.list);
         
         assert.property(savedObj, '_id');
@@ -17,7 +19,7 @@ describe('save', () => {
     });
     it('returns `objectToSave` with added `_id` property', () => {
         let store = new Store()
-        let savedObj = store.save({name : 'fido'}); 
+        let savedObj = store.save({name : 'Tiffany'}); 
         
 
         assert.ok(savedObj._id);
@@ -27,13 +29,18 @@ describe('save', () => {
 describe('get', ()=> {
     it('returns the object that has that id', () => {
         let store = new Store();
-        let dog = {name : 'fido'};
+        let dog = {name : 'Tiffany'};
         let savedObj = store.save(dog);
-        let gettingIdObj = store.get(savedObj._id);
-        console.log('savedObj =', savedObj);
-        console.log('gettingIdObj =', gettingIdObj);
-        console.log('store.list =', store.list);
-        assert.equal(savedObj,gettingIdObj);
+        let trueStoredObj = store.get(savedObj._id);
+        assert.equal(savedObj,trueStoredObj);
+
+    });
+    it('return null if that id does not exist', () =>{
+        let store = new Store();
+        let rando = shortid.generate();
+        let falseStoredObj = store.get(rando);
+
+        assert.equal(falseStoredObj, null);
 
     });
 });
