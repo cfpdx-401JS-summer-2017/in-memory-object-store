@@ -1,32 +1,32 @@
 const shortid = require('shortid');
-const dictionary = {};
 
-function save(obj) {
-    obj._id = shortid.generate();
-    dictionary[obj._id] = obj;
-    return obj;
-}
+class Store {
+    constructor() {
+        this.dictionary = {};
+    }
 
-function get(id) {
-    return dictionary[id];
-}
+    save(obj) {
+        obj._id = shortid.generate();
+        this.dictionary[obj._id] = obj;
+        return obj;
+    }
 
-function getAll() {
-    return Object.values(dictionary);
-}
+    get(id) {
+        return this.dictionary[id];
+    }
 
-function remove(id) {
-    if (dictionary[id]) {
-        delete dictionary[id];
-        return { removed: true };
-    } else {
-        return { removed: false };
+    getAll() {
+        return Object.values(this.dictionary);
+    }
+
+    remove(id) {
+        if (this.dictionary[id]) {
+            delete this.dictionary[id];
+            return { removed: true };
+        } else {
+            return { removed: false };
+        }
     }
 }
 
-module.exports = {
-    save: save,
-    get: get,
-    getAll: getAll,
-    remove: remove
-};
+module.exports = Store;

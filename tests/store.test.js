@@ -1,7 +1,8 @@
 const assert = require('assert');
-const store = require('../src/store');
+const Store = require('../src/store');
 
 describe('memory store', () => {
+    const store = new Store();
     const dog = { type: 'dog', name: 'rudy' };
     const cat = { type: 'cat', name: 'stewie' };
 
