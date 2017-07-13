@@ -64,7 +64,7 @@ describe('getAll()', () => {
 
 });
 describe('remove', () => {
-    it('removes the object from the store that has that id',()=> {
+    it.skip('removes the object from the store that has that id',()=> {
         let store = new Store();
         let dog1 = store.save({name : 'Tiffany'});
         let dog2 = store.save({name : 'Fido'});
