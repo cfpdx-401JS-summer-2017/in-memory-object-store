@@ -1,0 +1,27 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "object-store.test.js",
+  "scripts": {
+    "test": "mocha test",
+    "start": "npm test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jchurchman/in-memory-object-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jchurchman/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/jchurchman/in-memory-object-store#readme",
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8"
+  }
+}
