@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "chai": "^4.0.2",
+    "mocha": "^3.4.2",
     "shortid": "^2.2.8"
   },
   "devDependencies": {},
