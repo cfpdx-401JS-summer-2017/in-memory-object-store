@@ -7,6 +7,7 @@ describe('object library', () => {
     tmp = new nightOut();
   });
   it('creates an _id for an obj and returns it', () => {
+    console.log('ol: ',tmp);
     // const monday = {beverage : 'beer'};
     // // const saved = monday.save(monday);
     // assert.ok(saved._id);
