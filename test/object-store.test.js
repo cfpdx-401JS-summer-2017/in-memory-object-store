@@ -34,4 +34,13 @@ describe('object-store', () => {
     const getWrong = store.get('blaearg');
     assert.equal(getWrong, null);
   });
+
+  it('removes an object when given an id or responds in the negative if the id did not exist', () => {
+    const orange = { 'tool': false, 'use': 'a delicious citrus fruit' };
+    const orangeId = store.save(orange)._id;
+    const removed1 = store.remove(orangeId);
+    const removed2 = store.remove('badId');
+    assert.equal(removed1, { removed: true });
+    assert.equal(removed2, { removed: false });
+  });
 });
