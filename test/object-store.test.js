@@ -40,7 +40,7 @@ describe('object-store', () => {
     const orangeId = store.save(orange)._id;
     const removed1 = store.remove(orangeId);
     const removed2 = store.remove('badId');
-    assert.equal(removed1, { removed: true });
-    assert.equal(removed2, { removed: false });
+    assert.deepEqual(removed1, { removed: true });
+    assert.deepEqual(removed2, { removed: false });
   });
 });
