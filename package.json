@@ -1,0 +1,29 @@
+{
+  "name": "in-memory-object-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/object-library.js",
+  "scripts": {
+
+    "test": "mocha tests",
+    "start": "npm test -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wbeck32/in-memory-object-store.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wbeck32/in-memory-object-store/issues"
+  },
+  "homepage": "https://github.com/wbeck32/in-memory-object-store#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "eslint": "^4.2.0",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "shortid": "^2.2.8"
+  }
+}
