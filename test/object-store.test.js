@@ -1,29 +1,5 @@
 const assert = require('assert');
-const shortid = require('shortid');
-
-shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@');
-
-const store = {
-  items: [],
-  getAll: () => store.items.slice(),
-  save: (obj) => {
-    obj._id = shortid.generate();
-    store.items.push(obj);
-    return obj;
-  },
-  get: (id) => {
-    if (store.items.find((element) => {
-      return element._id === id;
-    }, id)) {
-      return store.items.find((element) => {
-        return element._id === id;
-      }, id);
-    } else {
-      return null
-    }
-  }
-};
-
+const store = require('../lib/object-store');
 
 describe('object-store', () => {
   it('works', ()=> {
@@ -57,5 +33,14 @@ describe('object-store', () => {
   it('returns null if the id given does not match any object that is saved', () => {
     const getWrong = store.get('blaearg');
     assert.equal(getWrong, null);
+  });
+
+  it('removes an object when given an id or responds in the negative if the id did not exist', () => {
+    const orange = { 'tool': false, 'use': 'a delicious citrus fruit' };
+    const orangeId = store.save(orange)._id;
+    const removed1 = store.remove(orangeId);
+    const removed2 = store.remove('badId');
+    assert.deepEqual(removed1, { removed: true });
+    assert.deepEqual(removed2, { removed: false });
   });
 });
