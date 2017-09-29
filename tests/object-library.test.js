@@ -61,6 +61,8 @@ describe('object library tests', () => {
         beverage: 'Mirror Pond'
       };
       const savedSunday = Sunday.save(sunday);
+      savedSunday.dayOfWeek = 'Friday';
+      savedSunday.beverage = 'Tecate';
       const updated = Sunday.update(savedSunday);
 
       updated.forEach(n => {
