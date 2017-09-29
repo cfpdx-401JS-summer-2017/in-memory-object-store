@@ -4,9 +4,10 @@
   "description": "",
   "main": "lib/object-library.js",
   "scripts": {
-
-    "test": "mocha tests",
-    "start": "npm test -- -w"
+    "test:watch:nodemon": "nodemon --watch lib --watch tests --exec 'npm test'",
+    "test:watch": "npm test -- -w",
+    "test": "mocha --recursive './tests' --reporter mocha-better-spec-reporter",
+    "start": "npm run test:watch:nodemon"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,11 @@
   "homepage": "https://github.com/wbeck32/in-memory-object-store#readme",
   "devDependencies": {
     "assert": "^1.4.1",
-    "eslint": "^4.2.0",
-    "mocha": "^3.4.2"
+    "mocha": "^3.4.2",
+    "mocha-better-spec-reporter": "^3.1.0"
   },
   "dependencies": {
+    "random-id": "0.0.2",
     "shortid": "^2.2.8"
   }
 }
